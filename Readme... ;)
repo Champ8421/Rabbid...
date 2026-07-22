@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Dance Proposal Trailer</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle, #000, #1a1a1a);
+      overflow: hidden;
+      font-family: 'Bangers', cursive;
+      color: #fff;
+      text-align: center;
+    }
+    .trailer {
+      margin-top: 80px;
+      animation: fadeIn 2s ease forwards;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    h1 {
+      font-size: 40px;
+      text-shadow: 2px 2px 8px #ff0000;
+    }
+    p {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+    .tickets {
+      margin-top: 30px;
+    }
+    .ticket {
+      display: inline-block;
+      margin: 20px;
+      padding: 20px 40px;
+      border-radius: 12px;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 4px 4px 0 #fff;
+      transition: transform 0.3s;
+    }
+    .ticket:hover { transform: scale(1.2); }
+    .yes { background: #ff0000; color: #fff; }
+    .no { background: #1e90ff; color: #fff; }
+    .fireworks {
+      font-size: 40px;
+      animation: burst 1.5s ease forwards;
+    }
+    @keyframes burst {
+      0% { transform: scale(0); opacity: 0; }
+      50% { transform: scale(1.5); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .spotlight {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.2), transparent);
+      animation: spotlightFade 3s ease forwards;
+    }
+    @keyframes spotlightFade {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    .kiss {
+      font-size: 60px;
+      animation: dropDown 3s ease forwards;
+      margin-top: 20px;
+    }
+    @keyframes dropDown {
+      0% { opacity: 0; transform: translateY(-100px); }
+      50% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-100px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="spotlight"></div>
+
+  <div class="trailer">
+    <h1>🎬 In a world of heroes...</h1>
+    <p>One question changes everything.</p>
+    
+    <div class="tickets">
+      <div class="ticket yes" onclick="respond('yes')">🎟 YES Ticket</div>
+      <div class="ticket no" onclick="respond('no')">🎟 NO Ticket</div>
+    </div>
+    
+    <div id="response"></div>
+  </div>
+
+  <script>
+    function respond(answer) {
+      const response = document.getElementById("response");
+      if (answer === "yes") {
+        response.innerHTML = `
+          <h2>💖 Perfect Match!</h2>
+          <p>Thami & Tshudu step into their greatest adventure yet.</p>
+          <div class="fireworks">🎆🎇💖</div>
+          <div class="kiss">💋 Thami upside‑down kiss with Tshudu 💋</div>
+        `;
+      } else {
+        response.innerHTML = `
+          <h2>💔 Not every story connects...</h2>
+          <p>To Be Continued...</p>
+        `;
+      }
+    }
+  </script>
+
+</body>
+</html>
